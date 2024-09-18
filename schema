@@ -1,0 +1,52 @@
+CREATE TABLE Vehicles (
+    VehicleID INT PRIMARY KEY,
+    Make VARCHAR(50) NOT NULL,
+    Model VARCHAR(50) NOT NULL,
+    Year INT NOT NULL,
+    FuelType VARCHAR(20),
+    Capacity INT,
+    Status VARCHAR(20)
+);
+
+CREATE TABLE Drivers (
+    DriverID INT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    LicenseNumber VARCHAR(50) NOT NULL,
+    ExperienceYears INT,
+    PerformanceScore FLOAT,
+    AssignedVehicleID INT,
+    FOREIGN KEY (AssignedVehicleID) REFERENCES Vehicles(VehicleID)
+);
+
+CREATE TABLE Trips (
+    TripID INT PRIMARY KEY,
+    VehicleID INT,
+    DriverID INT,
+    StartLocation VARCHAR(100),
+    EndLocation VARCHAR(100),
+    StartTime DATETIME,
+    EndTime DATETIME,
+    Distance FLOAT,
+    FOREIGN KEY (VehicleID) REFERENCES Vehicles(VehicleID),
+    FOREIGN KEY (DriverID) REFERENCES Drivers(DriverID)
+);
+
+CREATE TABLE Maintenance (
+    MaintenanceID INT PRIMARY KEY,
+    VehicleID INT,
+    Date DATETIME,
+    Type VARCHAR(50),
+    Cost FLOAT,
+    NextDueDate DATETIME,
+    FOREIGN KEY (VehicleID) REFERENCES Vehicles(VehicleID)
+);
+
+CREATE TABLE FuelConsumption (
+    FuelID INT PRIMARY KEY,
+    VehicleID INT,
+    Date DATETIME,
+    LitersConsumed FLOAT,
+    DistanceTraveled FLOAT,
+    Cost FLOAT,
+    FOREIGN KEY (VehicleID) REFERENCES Vehicles(VehicleID)
+);
