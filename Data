@@ -1,0 +1,39 @@
+INSERT INTO Vehicles (VehicleID, Make, Model, Year, FuelType, Capacity, Status)
+VALUES
+(1, 'Toyota', 'Camry', 2020, 'Gasoline', 5, 'available'),
+(2, 'Ford', 'F-150', 2019, 'Diesel', 4, 'in service'),
+(3, 'Tesla', 'Model 3', 2021, 'Electric', 5, 'available'),
+(4, 'Chevrolet', 'Silverado', 2018, 'Gasoline', 3, 'in service'),
+(5, 'Honda', 'Civic', 2022, 'Gasoline', 4, 'available');
+
+INSERT INTO Drivers (DriverID, Name, LicenseNumber, ExperienceYears, PerformanceScore, AssignedVehicleID)
+VALUES
+(1, 'John Doe', 'DL123456', 5, 4.5, 1),
+(2, 'Jane Smith', 'DL654321', 3, 4.2, 2),
+(3, 'Mike Johnson', 'DL789123', 7, 3.8, 3),
+(4, 'Sarah Lee', 'DL321987', 2, 4.7, 4),
+(5, 'Tom Hardy', 'DL456789', 6, 4.0, 5);
+
+INSERT INTO Trips (TripID, VehicleID, DriverID, StartLocation, EndLocation, StartTime, EndTime, Distance)
+VALUES
+(1, 1, 1, 'New York', 'Boston', '2023-09-01 08:00:00', '2023-09-01 12:00:00', 300),
+(2, 2, 2, 'Los Angeles', 'San Francisco', '2023-09-02 09:00:00', '2023-09-02 13:00:00', 350),
+(3, 3, 3, 'Chicago', 'Detroit', '2023-09-03 10:00:00', '2023-09-03 15:00:00', 280),
+(4, 4, 4, 'Miami', 'Orlando', '2023-09-04 07:00:00', '2023-09-04 11:00:00', 250),
+(5, 5, 5, 'Houston', 'Dallas', '2023-09-05 08:30:00', '2023-09-05 12:30:00', 320);
+
+INSERT INTO Maintenance (MaintenanceID, VehicleID, Date, Type, Cost, NextDueDate)
+VALUES
+(1, 1, '2023-08-01', 'Oil Change', 100.00, '2023-10-01'),
+(2, 2, '2023-07-15', 'Tire Rotation', 50.00, '2023-09-15'),
+(3, 3, '2023-09-10', 'Brake Repair', 150.00, '2023-12-10'),
+(4, 4, '2023-06-30', 'Battery Replacement', 120.00, '2023-09-30'),
+(5, 5, '2023-05-25', 'Engine Check', 200.00, '2023-11-25');
+
+INSERT INTO FuelConsumption (FuelID, VehicleID, Date, LitersConsumed, DistanceTraveled, Cost)
+VALUES
+(1, 1, '2023-09-01', 40.0, 300, 60.00),
+(2, 2, '2023-09-02', 50.0, 350, 75.00),
+(3, 3, '2023-09-03', 35.0, 280, 52.50),
+(4, 4, '2023-09-04', 30.0, 250, 45.00),
+(5, 5, '2023-09-05', 45.0, 320, 67.50);
